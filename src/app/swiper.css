@@ -1,0 +1,49 @@
+/* Swiper Core Styles */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+
+/* Custom Swiper Styling */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #D4AF37 !important;
+  background: rgba(255, 255, 255, 0.9);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  background: #D4AF37 !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #800020 !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 16px !important;
+  }
+}

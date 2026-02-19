@@ -11,30 +11,29 @@ export default function PhotoGallery() {
   const photos = [
     {
       id: 1,
-      src: '/images/gallery/photo1.jpg',
-      caption: 'Our First Meeting',
+      src: '/images/gallery/WhatsApp Image 2026-01-09 at 12.05.49 PM.jpeg',
+      caption: 'Beautiful Moments',
     },
     {
       id: 2,
-      src: '/images/gallery/photo2.jpg',
-      caption: 'The Proposal',
+      src: '/images/gallery/WhatsApp Image 2026-01-23 at 9.48.21 AM.jpeg',
+      caption: 'Cherished Memories',
     },
     {
       id: 3,
-      src: '/images/gallery/photo3.jpg',
-      caption: 'Engagement Ceremony',
+      src: '/images/gallery/WhatsApp Image 2026-02-11 at 11.51.27 PM.jpeg',
+      caption: 'Special Times',
     },
     {
       id: 4,
-      src: '/images/gallery/photo4.jpg',
-      caption: 'Pre-Wedding Celebration',
+      src: '/images/gallery/WhatsApp Image 2026-02-14 at 11.47.30 AM.jpeg',
+      caption: 'Together Forever',
     },
-    // Add more photos here following the same pattern
-    // {
-    //   id: 5,
-    //   src: '/images/gallery/photo5.jpg',
-    //   caption: 'Your Caption',
-    // },
+    {
+      id: 5,
+      src: '/images/gallery/WhatsApp Image 2026-02-14 at 12.09.34 PM.jpeg',
+      caption: 'Our Journey',
+    },
   ]
 
   // If no photos are added yet, show placeholder

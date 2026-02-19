@@ -8,7 +8,6 @@ import EventDetails from '@/components/EventDetails'
 import MapSection from '@/components/MapSection'
 import CalendarButton from '@/components/CalendarButton'
 import PhotoGallery from '@/components/PhotoGallery'
-import RSVPSection from '@/components/RSVPSection'
 import Footer from '@/components/Footer'
 import GlobalEffects from '@/components/GlobalEffects'
 
@@ -72,9 +71,6 @@ function WeddingContent() {
 
       {/* Photo Gallery */}
       <PhotoGallery />
-
-      {/* RSVP Form */}
-      <RSVPSection />
 
       {/* Footer */}
       <Footer

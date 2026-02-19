@@ -1,0 +1,14 @@
+# Photo Gallery Images
+
+Place your wedding photos here. Supported formats:
+- .jpg / .jpeg
+- .png
+- .webp
+
+The gallery will automatically display all images in this folder.
+
+Example:
+- photo1.jpg
+- photo2.jpg
+- photo3.png
+- etc.

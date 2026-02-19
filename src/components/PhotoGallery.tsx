@@ -1,36 +1,47 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
 
 export default function PhotoGallery() {
-  // Placeholder images - replace with actual couple photos
+  // Define your photos here - add as many as you want!
+  // Just place images in public/images/gallery/ and list them here
   const photos = [
     {
       id: 1,
+      src: '/images/gallery/photo1.jpg',
       caption: 'Our First Meeting',
-      color: 'from-royal-pink/20 to-royal-peach/20'
     },
     {
       id: 2,
+      src: '/images/gallery/photo2.jpg',
       caption: 'The Proposal',
-      color: 'from-royal-gold/20 to-royal-cream/20'
     },
     {
       id: 3,
+      src: '/images/gallery/photo3.jpg',
       caption: 'Engagement Ceremony',
-      color: 'from-royal-maroon/20 to-royal-pink/20'
     },
     {
       id: 4,
+      src: '/images/gallery/photo4.jpg',
       caption: 'Pre-Wedding Celebration',
-      color: 'from-royal-peach/20 to-royal-gold/20'
-    }
+    },
+    // Add more photos here following the same pattern
+    // {
+    //   id: 5,
+    //   src: '/images/gallery/photo5.jpg',
+    //   caption: 'Your Caption',
+    // },
   ]
 
+  // If no photos are added yet, show placeholder
+  const hasPhotos = photos.length > 0
+
   return (
-    <section className="relative py-20 px-4 overflow-hidden">
+    <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-[#FFF5E1] to-[#F8EDE3]">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <motion.div
@@ -49,62 +60,81 @@ export default function PhotoGallery() {
         </motion.div>
 
         {/* Gallery Carousel */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass-effect royal-shadow rounded-3xl overflow-hidden p-4"
-        >
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay, EffectFade]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
-            effect="fade"
-            loop
-            className="rounded-2xl"
+        {hasPhotos ? (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-effect royal-shadow rounded-3xl overflow-hidden p-4"
           >
-            {photos.map((photo) => (
-              <SwiperSlide key={photo.id}>
-                <div className="relative aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden">
-                  {/* Placeholder gradient background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${photo.color} flex items-center justify-center`}>
-                    <div className="text-center p-8">
-                      <div className="text-6xl md:text-8xl mb-4">📸</div>
-                      <p className="font-serif text-2xl md:text-4xl text-royal-maroon">
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay, EffectFade]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 4000, disableOnInteraction: false }}
+              effect="fade"
+              loop
+              className="rounded-2xl"
+            >
+              {photos.map((photo) => (
+                <SwiperSlide key={photo.id}>
+                  <div className="relative aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-to-br from-royal-cream to-royal-peach/20">
+                    <Image
+                      src={photo.src}
+                      alt={photo.caption}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                      quality={90}
+                      onError={(e) => {
+                        // Fallback if image doesn't exist
+                        const target = e.target as HTMLImageElement
+                        target.style.display = 'none'
+                      }}
+                    />
+                    {/* Caption overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                      <p className="font-serif text-2xl md:text-3xl text-white text-center">
                         {photo.caption}
-                      </p>
-                      <p className="text-royal-maroon/60 mt-4 text-sm">
-                        Replace with actual photo
                       </p>
                     </div>
                   </div>
-                  {/* Replace the above div with actual image:
-                  <Image
-                    src={photo.src}
-                    alt={photo.caption}
-                    fill
-                    className="object-cover"
-                  />
-                  */}
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </motion.div>
+        ) : (
+          // Placeholder when no photos
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-effect royal-shadow rounded-3xl overflow-hidden p-12 text-center"
+          >
+            <div className="text-6xl mb-4">📸</div>
+            <p className="font-serif text-2xl text-royal-maroon mb-2">
+              Photo Gallery Coming Soon
+            </p>
+            <p className="text-royal-maroon/60">
+              Add your photos to public/images/gallery/ and update the photos array in PhotoGallery.tsx
+            </p>
+          </motion.div>
+        )}
 
         {/* Gallery Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="text-center text-royal-maroon/60 mt-6 text-sm"
-        >
-          Swipe or use arrows to navigate • Auto-plays every 4 seconds
-        </motion.p>
+        {hasPhotos && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-center text-royal-maroon/60 mt-6 text-sm"
+          >
+            Swipe or use arrows to navigate • Auto-plays every 4 seconds
+          </motion.p>
+        )}
       </div>
     </section>
   )

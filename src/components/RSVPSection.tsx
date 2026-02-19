@@ -66,7 +66,7 @@ export default function RSVPSection() {
               Thank You!
             </h3>
             <p className="text-royal-maroon/80 text-lg mb-6">
-              Your RSVP has been received. We can't wait to celebrate with you!
+              Your RSVP has been received. We can&apos;t wait to celebrate with you!
             </p>
             <motion.button
               onClick={() => setSubmitted(false)}
@@ -178,7 +178,7 @@ export default function RSVPSection() {
                   className="sr-only peer"
                 />
                 <div className="px-6 py-3 rounded-xl border-2 border-royal-gold/30 peer-checked:border-royal-gold peer-checked:bg-royal-gold/10 cursor-pointer text-center transition-all hover:bg-white/50">
-                  ✓ Yes, I'll be there
+                  ✓ Yes, I&apos;ll be there
                 </div>
               </label>
               <label className="flex-1">
@@ -191,7 +191,7 @@ export default function RSVPSection() {
                   className="sr-only peer"
                 />
                 <div className="px-6 py-3 rounded-xl border-2 border-royal-gold/30 peer-checked:border-royal-maroon peer-checked:bg-royal-maroon/10 cursor-pointer text-center transition-all hover:bg-white/50">
-                  ✗ Sorry, can't make it
+                  ✗ Sorry, can&apos;t make it
                 </div>
               </label>
             </div>

@@ -85,7 +85,7 @@ export default function Footer({
           </p>
           
           <p className="text-royal-maroon/70">
-            We can't wait to celebrate with you!
+            We can&apos;t wait to celebrate with you!
           </p>
 
           <p className="text-royal-maroon/50 text-sm">
